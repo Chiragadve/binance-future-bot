@@ -1,68 +1,119 @@
-# Binance Futures Trading Bot (Testnet)
+# Binance Futures Testnet Trading Bot
 
-## 🚀 Overview  
-A modular and production-ready crypto trading bot built for Binance Futures **Testnet** using Python.  
-It supports **Market, Limit, and Stop-Limit orders**, full logging, user input validation, and real API execution.
+A modular Python-based trading bot for **Binance Futures Testnet**.  
+It supports **Market**, **Limit**, and **Stop-Limit** orders with **input validation**, **logging**, and **real API execution** using the official Python Binance client.
 
-## ⚙️ Features Implemented
-- ✔ Market & Limit Orders
-- ✔ Buy / Sell Support
-- ✔ Stop-Limit Order (Bonus Requirement)
-- ✔ Logging of Requests, Responses & Errors
-- ✔ Structured CLI with Validation
-- ✔ Modular, Reusable Codebase
-- ✔ Error Handling (Margin, Invalid Symbol, Timestamp, Pricing Errors)
+---
 
-## 🏗 Architecture
+## 🚀 Features
 
+- Market & Limit orders  
+- Stop-Limit order (bonus requirement)  
+- Buy/Sell support  
+- Structured CLI interface  
+- Validations on symbol, price, quantity  
+- Logging of requests, responses, and errors  
+- Modular & reusable codebase  
+- `.env` configuration support  
+
+---
+
+## 📂 Project Structure
+
+```
 binance-futures-bot/
 │
 ├── bot/
 │   ├── __init__.py
-│   ├── basic_bot.py          # Core trading logic (Market, Limit, Stop-Limit)
-│   ├── client_factory.py     # Creates Binance Futures client (Testnet)
-│   ├── cli.py                # Handles user input & command-line workflow
-│   ├── config.py             # Environment variable loader
-│   └── logger.py             # Logging helper (API requests, responses, errors)
+│   ├── basic_bot.py          # Trading logic (Market, Limit, Stop-Limit)
+│   ├── client_factory.py     # Binance Client (Testnet setup)
+│   ├── cli.py                # CLI input handling
+│   ├── config.py             # Environment loader
+│   └── logger.py             # Logging utilities
 │
 ├── logs/
-│   ├── bot.log               # Real trade logs (API errors + success)
+│   ├── bot.log               # Main log file
 │   └── bot_copy.txt          # Backup log file
 │
-├── main.py                   # Entry file – run the trading bot (CLI)
-├── requirements.txt          # Minimal dependencies for assignment
-├── .env.example              # Example (Do NOT upload real keys)
-└── README.md                 # Project documentation
+├── screenshots/
+│   ├── screenshot1.png
+│   ├── screenshot2.png
+│   └── screenshot3.png
+│
+├── main.py                   # Entry point for running the bot
+├── requirements.txt          # Required packages
+├── .env.example              # Sample environment file
+└── README.md
+```
 
+---
 
-
-## 📦 Setup & Installation
+## ⚙️ Installation
 
 ```bash
 git clone https://github.com/Chiragadve/binance-future-bot
-cd binance-future-bot
+cd binance-futures-bot
+
 python -m venv venv
-venv\Scripts\activate       # on Windows
+venv\Scripts\activate   # Windows  
+# source venv/bin/activate   # macOS/Linux
+
 pip install -r requirements.txt
+```
 
+---
 
+## 🔐 Environment Setup
+
+Create a `.env` file in root:
+
+```
 BINANCE_API_KEY=your_key_here
 BINANCE_API_SECRET=your_secret_here
 USE_TESTNET=True
+```
 
+Do **not** commit real API keys. An `.env.example` file is provided.
+
+---
+
+## ▶ Run the Bot
+
+```bash
 python main.py
+```
+
+Follow the CLI prompts to place market, limit, or stop-limit orders on the testnet.
+
+---
 
 ## 📸 Screenshots
 
-### 1. User Interface – Order Input  
+### 1. CLI Interface (Order Input)
 Shows trading pair, side, quantity, and order type selection.  
 ![Screenshot 1](screenshots/screenshot1.png)
 
-### 2. Order Successfully Executed  
-Successful Market / Limit order executed on Binance Testnet.  
+### 2. Successful Order Execution  
+Example of a Market or Limit order placed successfully.  
 ![Screenshot 2](screenshots/screenshot2.png)
 
 ### 3. Error Handling & Logging  
-Timestamp error / insufficient margin / invalid price handling.  
-This proves logging and API error management.
+Demonstrates timestamp errors, margin errors, and price restrictions.  
 ![Screenshot 3](screenshots/screenshot3.png)
+
+---
+
+## 🧠 Logging Example
+
+```
+2025-11-25 21:10:22,385 | bot.basic_bot | INFO  | Stop-limit order request: {...}
+2025-11-25 21:10:22,544 | bot.basic_bot | ERROR | Stop-limit order failed
+APIError(code=-4184): Limit price can't be lower than 104500
+```
+
+Logs verify:
+- Order request parameters  
+- API responses  
+- Error handling implemented correctly  
+
+---
