@@ -90,15 +90,15 @@ Follow the CLI prompts to place market, limit, or stop-limit orders on the testn
 ## 📸 Screenshots
 
 ### 1. CLI Interface (Order Input)
-Shows trading pair, side, quantity, and order type selection.  
+Example of a Market order placed successfully.  
 ![Screenshot 1](screenshots/screenshot1.png)
 
 ### 2. Successful Order Execution  
-Example of a Market or Limit order placed successfully.  
+Example of a Limit order placed successfully.  
 ![Screenshot 2](screenshots/screenshot2.png)
 
 ### 3. Error Handling & Logging  
-Demonstrates timestamp errors, margin errors, and price restrictions.  
+Demonstrates Stop Limit order placed successfully. 
 ![Screenshot 3](screenshots/screenshot3.png)
 
 ---
