@@ -16,17 +16,24 @@ It supports **Market, Limit, and Stop-Limit orders**, full logging, user input v
 ## 🏗 Architecture
 
 binance-futures-bot/
-│── bot/
-│ │── basic_bot.py
-│ │── client_factory.py
-│ │── logger.py
-│ │── cli.py
-│ └── config.py
 │
-│── logs/ ← Contains trade logs
-│── main.py ← CLI entry point
-│── requirements.txt
-└── README.md
+├── bot/
+│   ├── __init__.py
+│   ├── basic_bot.py          # Core trading logic (Market, Limit, Stop-Limit)
+│   ├── client_factory.py     # Creates Binance Futures client (Testnet)
+│   ├── cli.py                # Handles user input & command-line workflow
+│   ├── config.py             # Environment variable loader
+│   └── logger.py             # Logging helper (API requests, responses, errors)
+│
+├── logs/
+│   ├── bot.log               # Real trade logs (API errors + success)
+│   └── bot_copy.txt          # Backup log file
+│
+├── main.py                   # Entry file – run the trading bot (CLI)
+├── requirements.txt          # Minimal dependencies for assignment
+├── .env.example              # Example (Do NOT upload real keys)
+└── README.md                 # Project documentation
+
 
 
 ## 📦 Setup & Installation
@@ -45,7 +52,17 @@ USE_TESTNET=True
 
 python main.py
 
-Screenshots
-<img width="1919" height="949" alt="image" src="https://github.com/user-attachments/assets/a6a4d435-d15d-4125-8be2-e7448ed7a46d" />
-<img width="1919" height="1015" alt="image" src="https://github.com/user-attachments/assets/675ccd33-ed14-4a82-8dd9-d023141618ae" />
-<img width="1919" height="1028" alt="image" src="https://github.com/user-attachments/assets/684c52fe-87b4-4dbb-8b30-a00fe00e9d4a" />
+## 📸 Screenshots
+
+### 1. User Interface – Order Input  
+Shows trading pair, side, quantity, and order type selection.  
+![Screenshot 1](screenshots/screenshot1.png)
+
+### 2. Order Successfully Executed  
+Successful Market / Limit order executed on Binance Testnet.  
+![Screenshot 2](screenshots/screenshot2.png)
+
+### 3. Error Handling & Logging  
+Timestamp error / insufficient margin / invalid price handling.  
+This proves logging and API error management.
+![Screenshot 3](screenshots/screenshot3.png)
